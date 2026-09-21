@@ -1,2 +1,0 @@
-:HL["/NovelShift/_next/static/css/1b1146cf9b7c2ab4.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"ai-provider-setup","param":null,"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}},"staleTime":300,"buildId":"MWfBUXOV_WAUWtTt97cm0"}

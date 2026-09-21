@@ -1,0 +1,2 @@
+:HL["/novelshift/_next/static/css/1b1146cf9b7c2ab4.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}},"staleTime":300,"buildId":"Vn6WY_pKeWj8NguKYeLZL"}
