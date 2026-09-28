@@ -1,2 +1,2 @@
 :HL["/novelshift/_next/static/css/3e7c870fba70c08a.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}},"staleTime":300,"buildId":"vLSX2aBUirzWbb4xR0xx4"}
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}},"staleTime":300,"buildId":"29B4lB6VJRaUhJbJDnygh"}
