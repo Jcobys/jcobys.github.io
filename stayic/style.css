@@ -1,1 +1,54 @@
-*{box-sizing:border-box}html{color-scheme:light dark;scroll-behavior:smooth}body{margin:0;background:#f5f6fa;color:#242536;font:17px/1.8 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:#5544bd;text-underline-offset:4px}a:focus-visible{outline:3px solid #aa92ff;outline-offset:5px}header,main,footer{max-width:850px;margin:auto;padding:26px 24px}header{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}header>a{display:flex;align-items:center;gap:12px;font-weight:700;font-size:22px;text-decoration:none;color:inherit}header img{border-radius:14px}nav{display:flex;gap:18px;flex-wrap:wrap;font-size:15px}main{background:#fff;border-radius:24px;padding:38px;margin:16px auto}h1{font-size:clamp(30px,6vw,44px);line-height:1.2;letter-spacing:-.03em}h2{font-size:27px;margin-top:45px;line-height:1.4}h3{font-size:20px;line-height:1.5;margin-top:28px}p{overflow-wrap:anywhere}section{scroll-margin-top:24px}.meta,footer{font-size:14px;color:#646477}.intro{font-size:20px}.language{display:flex;gap:18px;padding:12px 0;border-bottom:1px solid #ddd}footer{padding-bottom:40px}li{margin:8px 0}.notice{background:#f3f0ff;border-radius:14px;padding:18px} @media(max-width:880px){main{margin:10px 14px;padding:24px}}@media(prefers-color-scheme:dark){body{background:#15151d;color:#eeeef5}main{background:#20202a}a{color:#c3b6ff}.meta,footer{color:#b1b1c2}.notice{background:#302944}.language{border-color:#454554}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { color-scheme: light dark; scroll-behavior: smooth; }
+body { margin: 0; background: #f5f6fa; color: #242536; font: 17px/1.8 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+a { color: #5544bd; text-underline-offset: 4px; }
+a:focus-visible, button:focus-visible { outline: 3px solid #8164e8; outline-offset: 4px; }
+header, main, footer { max-width: 900px; margin: auto; padding: 26px 28px; }
+header { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.brand { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 22px; text-decoration: none; color: inherit; }
+header img { border-radius: 14px; }
+.site-navigation { margin-left: auto; font-size: 15px; }
+.nav-links { display: flex; gap: 18px; flex-wrap: wrap; }
+.nav-links a { display: inline-flex; align-items: center; min-height: 44px; }
+a[aria-current="page"] { font-weight: 700; }
+.language-switch { display: flex; gap: 4px; padding: 4px; border: 1px solid #d8d6e3; border-radius: 14px; }
+.language-switch button { min-height: 44px; padding: 6px 13px; border: 0; border-radius: 10px; background: transparent; color: inherit; font: inherit; font-size: 15px; cursor: pointer; }
+.language-switch button[aria-pressed="true"] { background: #5544bd; color: #fff; }
+.language-switch button:hover { box-shadow: inset 0 0 0 1px #8a77d2; }
+main { background: #fff; border-radius: 24px; padding: 38px; margin: 12px auto; }
+h1 { font-size: clamp(30px, 6vw, 44px); line-height: 1.25; letter-spacing: -.03em; margin: 0 0 16px; }
+h2 { font-size: 22px; line-height: 1.5; margin: 32px 0 12px; }
+p, li { overflow-wrap: anywhere; }
+p { margin: 12px 0; }
+ul { padding-left: 24px; }
+li { margin: 10px 0; }
+section { scroll-margin-top: 24px; }
+.meta, footer { font-size: 14px; color: #646477; }
+.meta { margin-bottom: 24px; }
+.intro { font-size: 20px; }
+.provider-links { font-size: 15px; }
+.page-links { list-style: none; padding: 0; }
+.page-links li { padding: 12px 0; border-bottom: 1px solid #e9e7ef; }
+.page-links a { font-size: 19px; font-weight: 600; }
+.page-links span { display: block; color: #646477; font-size: 15px; margin-top: 2px; }
+footer { padding-bottom: 40px; }
+@media (max-width: 940px) { main { margin: 10px 14px; padding: 28px; } }
+@media (max-width: 640px) {
+  header { padding: 22px 20px 12px; gap: 12px; }
+  .language-switch { margin-left: auto; }
+  .site-navigation { order: 3; flex-basis: 100%; margin-left: 0; }
+  .nav-links { gap: 22px; }
+  main { padding: 26px 22px; border-radius: 20px; }
+  footer { padding: 24px 22px 36px; }
+}
+@media (prefers-color-scheme: dark) {
+  body { background: #15151d; color: #eeeef5; }
+  main { background: #20202a; }
+  a { color: #c3b6ff; }
+  .meta, footer, .page-links span { color: #b1b1c2; }
+  .language-switch { border-color: #4f4a63; }
+  .language-switch button[aria-pressed="true"] { background: #c3b6ff; color: #211837; }
+  .page-links li { border-color: #403b50; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

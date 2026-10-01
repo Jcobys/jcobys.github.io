@@ -1,1 +1,67 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark"><title>StayIC · StayIC</title><link rel="icon" href="icon.png"><link rel="stylesheet" href="style.css"></head><body><header><a href="index.html"><img src="icon.png" width="48" height="48" alt="">StayIC</a><nav aria-label="Main navigation"><a href="privacy.html">Privacy / 隐私</a><a href="terms.html">Terms / 协议</a><a href="support.html">Support / 支持</a></nav></header><main><h1>Stay in character.</h1><p class="intro">Create character profiles, review rules and check dialogue with StayIC.</p><p lang="zh-CN" class="intro">建立角色资料、整理规则，用 StayIC 辅助检查对话是否符合角色。</p><h2>Policies & support / 协议与支持</h2><ul><li><a href="privacy.html">Privacy Policy / 隐私政策</a></li><li><a href="terms.html">Terms of Use / 用户协议</a></li><li><a href="support.html">Support / 联系支持</a></li></ul></main><footer>StayIC · <a href="mailto:zlhibari@gmail.com">zlhibari@gmail.com</a><br>Updated October 1, 2026 · 更新日期：2026 年 10 月 1 日</footer></body></html>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>让每一句话，都符合角色。 · StayIC</title>
+<link rel="icon" href="icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<a class="brand" data-page href="index.html"><img src="icon.png" width="48" height="48" alt="">StayIC</a>
+<nav class="site-navigation" aria-label="网站导航"><span class="nav-links" data-language="zh"><a data-page href="privacy.html">隐私政策</a><a data-page href="terms.html">用户协议</a><a data-page href="support.html">联系支持</a></span><span class="nav-links" data-language="en" hidden><a data-page href="privacy.html">Privacy</a><a data-page href="terms.html">Terms</a><a data-page href="support.html">Support</a></span></nav>
+<div class="language-switch" role="group" aria-label="选择语言">
+<button type="button" lang="zh-CN" data-set-language="zh" aria-pressed="true">中文</button>
+<button type="button" lang="en" data-set-language="en" aria-pressed="false">English</button>
+</div>
+</header>
+<main><article id="chinese" lang="zh-CN" data-language="zh" data-title="让每一句话，都符合角色。">
+<h1>让每一句话，都符合角色。</h1>
+
+<p class="intro">用 StayIC 建立角色资料、整理规则，辅助检查对话是否符合角色。</p><section><h2>协议与支持</h2><ul class="page-links"><li><a data-page href="privacy.html">隐私政策</a><span>了解信息的使用与管理方式。</span></li><li><a data-page href="terms.html">用户协议</a><span>了解服务、购买及使用规则。</span></li><li><a data-page href="support.html">联系支持</a><span>获取使用、购买或隐私方面的帮助。</span></li></ul></section>
+</article><article id="english" lang="en" data-language="en" data-title="Stay in character." hidden>
+<h1>Stay in character.</h1>
+
+<p class="intro">Create character profiles, organize rules and review dialogue with StayIC.</p><section><h2>Policies and support</h2><ul class="page-links"><li><a data-page href="privacy.html">Privacy Policy</a><span>How your information is used and managed.</span></li><li><a data-page href="terms.html">Terms of Use</a><span>Services, purchases and rules for use.</span></li><li><a data-page href="support.html">Support</a><span>Help with features, purchases and privacy.</span></li></ul></section>
+</article></main>
+<footer>StayIC · <a href="mailto:zlhibari@gmail.com">zlhibari@gmail.com</a><br><span data-language="zh">更新日期：2026 年 10 月 1 日</span><span data-language="en" hidden>Updated October 1, 2026</span></footer>
+<script>
+(() => {
+  const buttons = [...document.querySelectorAll('[data-set-language]')];
+  const localized = [...document.querySelectorAll('[data-language]')];
+  const query = new URLSearchParams(location.search).get('lang');
+  const legacy = location.hash === '#chinese' ? 'zh' : location.hash === '#english' ? 'en' : null;
+  let saved;
+  try { saved = localStorage.getItem('stayic-language'); } catch (_) {}
+  const valid = value => value === 'zh' || value === 'en';
+  const preferred = (navigator.languages || [navigator.language]).find(value => /^(zh|en)(-|$)/i.test(value));
+  const initial = [query, legacy, saved].find(valid) || (/^zh/i.test(preferred || '') ? 'zh' : 'en');
+  function selectLanguage(language, remember) {
+    if (!valid(language)) return;
+    localized.forEach(element => { element.hidden = element.dataset.language !== language; });
+    buttons.forEach(button => { button.setAttribute('aria-pressed', String(button.dataset.setLanguage === language)); });
+    document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en';
+    document.title = document.querySelector('article[data-language="' + language + '"]').dataset.title + ' · StayIC';
+    document.querySelector('.site-navigation').setAttribute('aria-label', language === 'zh' ? '网站导航' : 'Site navigation');
+    document.querySelector('.language-switch').setAttribute('aria-label', language === 'zh' ? '选择语言' : 'Choose language');
+    document.querySelectorAll('a[data-page]').forEach(link => {
+      const url = new URL(link.getAttribute('href'), location.href);
+      url.searchParams.set('lang', language);
+      link.setAttribute('href', url.pathname.split('/').pop() + url.search + url.hash);
+    });
+    if (remember) { try { localStorage.setItem('stayic-language', language); } catch (_) {} }
+    try {
+      const url = new URL(location.href);
+      url.searchParams.set('lang', language);
+      if (url.hash === '#chinese' || url.hash === '#english') url.hash = '';
+      history.replaceState(null, '', url);
+    } catch (_) {}
+  }
+  buttons.forEach(button => button.addEventListener('click', () => selectLanguage(button.dataset.setLanguage, true)));
+  selectLanguage(initial, valid(query) || !!legacy);
+})();
+</script>
+</body>
+</html>
