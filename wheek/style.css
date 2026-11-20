@@ -54,3 +54,6 @@ footer { padding-bottom: 40px; }
   .page-links li { border-color: #625746; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+#language { margin-left: auto; min-height: 44px; padding: 8px 36px 8px 14px; border: 1px solid #c4bbaa; border-radius: 12px; background: transparent; color: inherit; font: inherit; font-size: 15px; }
+#language option { background: Canvas; color: CanvasText; }
